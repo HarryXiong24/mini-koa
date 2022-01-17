@@ -1,7 +1,7 @@
 {
-  "name": "rollup-ts-starter",
+  "name": "mini-koa",
   "version": "0.0.1",
-  "description": "A fast typescript library starter.",
+  "description": "A mini-koa project.",
   "main": "lib/bundle.cjs.js",
   "module": "lib/bundle.esm.js",
   "scripts": {

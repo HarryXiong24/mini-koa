@@ -1,14 +1,14 @@
-<h1 align="center">Welcome to rollup-ts-starter 👋</h1>
+<h1 align="center">Welcome to mini-koa 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000" />
-  <a href="https://github.com/HarryXiong24/rollup-ts-starter/blob/master/LICENSE" target="_blank">
+  <a href="https://github.com/HarryXiong24/mini-koa/blob/master/LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
 </p>
 
 > A fast typescript library starter.
 
-### 🏠 [Homepage](https://github.com/HarryXiong24/rollup-ts-starter)
+### 🏠 [Homepage](https://github.com/HarryXiong24/mini-koa)
 
 ## Getting started
 
@@ -47,4 +47,4 @@ Give a ⭐️ if this project helped you!
 ## 📝 License
 
 Copyright © 2022 [Harry Xiong](https://github.com/harryxiong24).<br />
-This project is [MIT](https://github.com/HarryXiong24/rollup-ts-starter/blob/master/LICENSE) licensed.
+This project is [MIT](https://github.com/HarryXiong24/mini-koa/blob/master/LICENSE) licensed.
