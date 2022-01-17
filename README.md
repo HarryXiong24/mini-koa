@@ -6,7 +6,7 @@
   </a>
 </p>
 
-> A fast typescript library starter.
+> A mini-koa project.
 
 ### 🏠 [Homepage](https://github.com/HarryXiong24/mini-koa)
 
