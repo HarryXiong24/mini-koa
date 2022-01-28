@@ -21,9 +21,10 @@ yarn
 ## Build
 
 ```sh
-// builds the library to `lib`
+# builds the library to `lib`
 yarn build
-// builds `.d.ts` file for the library
+
+# builds `.d.ts` file for the library
 yarn build:type
 ```
 
