@@ -31,7 +31,6 @@ yarn build:type
 ## Run tests
 
 ```sh
-# jest test
 yarn test
 ```
 
