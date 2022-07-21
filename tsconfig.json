@@ -7,7 +7,7 @@
     "module": "commonjs",
     "noImplicitAny": true,
     "removeComments": true,
-    "preserveConstEnums": false,
+    // "preserveConstEnums": false,
     "sourceMap": true,
     "downlevelIteration": true,
     "lib": ["es6"]

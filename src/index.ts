@@ -22,7 +22,7 @@ export class Application {
    * 注册使用中间件
    * @param {Function} fn
    */
-  use(fn: (ctx: any, ...args: any[]) => any) {
+  use(fn: (ctx: Context, ...args: any[]) => any) {
     if (typeof fn === 'function') {
       this.middleware.push(fn);
     }
@@ -56,22 +56,14 @@ export class Application {
     const ctx = this.createContext(req, res);
     const middleware = this.middleware;
     const body = ctx.body;
-    // 执行中间件
-    compose(middleware)(ctx).catch((err) => this.onerror(err));
     if (body) {
       res.end(body);
     } else {
       res.end('Not Found');
     }
+    // 执行中间件
+    compose(middleware)(ctx).catch((err) => this.onerror(err));
   };
-
-  /**
-   * 异常处理监听
-   * @param {EndOfStreamError} err
-   */
-  onerror(err: Error) {
-    console.log(err);
-  }
 
   /**
    * 服务事件监听
@@ -81,6 +73,14 @@ export class Application {
     const server = http.createServer(this.callback);
     // console.log(...args);
     server.listen(...args);
+  }
+
+  /**
+   * 异常处理监听
+   * @param {EndOfStreamError} err
+   */
+  onerror(err: Error) {
+    console.log(err);
   }
 }
 
