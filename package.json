@@ -5,7 +5,7 @@
   "main": "lib/bundle.cjs.js",
   "module": "lib/bundle.esm.js",
   "scripts": {
-    "dev": "ts-node ./test/index.ts",
+    "dev": "ts-node ./example/index.ts",
     "build": "rollup -c",
     "build:type": "tsc -p ./tsconfig.type.json",
     "test": "jest --no-cache --coverage",
