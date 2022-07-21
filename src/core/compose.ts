@@ -1,5 +1,5 @@
 // koa 中间件引擎
-import { Middleware, Context, NextHook } from './types';
+import { Middleware, Context, NextHook } from '../types';
 
 export function compose(middleware: Middleware) {
   // 中间件必须存放在一个数组

@@ -12,5 +12,5 @@
     "downlevelIteration": true,
     "lib": ["es6"]
   },
-  "include": ["src/*"]
+  "include": ["src/*", "src/types/types.ts", "src/common/context.ts", "src/core/compose.ts", "src/plugins/logger"]
 }

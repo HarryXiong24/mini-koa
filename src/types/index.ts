@@ -1,5 +1,5 @@
-import request from './request';
-import response from './response';
+import request from '../common/request';
+import response from '../common/response';
 
 export interface Context {
   [propName: string]: any;

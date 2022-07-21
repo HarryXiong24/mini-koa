@@ -3,6 +3,7 @@ export const request = {
     url: '',
     socket: '',
     headers: '',
+    method: '',
   },
   origin: '',
   originalUrl: '',
@@ -18,13 +19,18 @@ export const request = {
   get header() {
     return this.req.headers;
   },
-
   set header(val) {
     this.req.headers = val;
   },
   get href() {
     if (/^https?:\/\//i.test(this.originalUrl)) return this.originalUrl;
     return this.origin + this.originalUrl;
+  },
+  set method(val) {
+    this.req.method = val;
+  },
+  get method() {
+    return this.req.method;
   },
 };
 
