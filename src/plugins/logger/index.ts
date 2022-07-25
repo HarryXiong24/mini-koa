@@ -14,3 +14,5 @@ export const logger = async function (ctx: Context, next: NextHook) {
     console.log(`--> ${ctx.req.method} ${ctx.req.url}`);
   });
 };
+
+export default logger;

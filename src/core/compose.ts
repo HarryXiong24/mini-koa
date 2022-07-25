@@ -1,7 +1,7 @@
 // koa 中间件引擎
 import { Middleware, Context, NextHook } from '../types';
 
-export function compose(middleware: Middleware) {
+export function compose(middleware: Middleware[]) {
   // 中间件必须存放在一个数组
   if (!Array.isArray(middleware)) {
     throw new TypeError('Middleware stack must be an array!');
@@ -12,7 +12,7 @@ export function compose(middleware: Middleware) {
 
     return dispatch(0);
 
-    function dispatch(i: number) {
+    function dispatch(i: number): Promise<any> {
       if (i < index) {
         return Promise.reject(new Error('next() called multiple times'));
       }

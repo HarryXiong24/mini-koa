@@ -10,5 +10,6 @@ export type Request = Partial<typeof request> & {
 export type Response = Partial<typeof response> & {
   [propName: string]: any;
 };
-export type Middleware = ((ctx: Context, ...args: any[]) => any)[];
+export type Middleware = (ctx: Context, next?: NextHook, ...args: any[]) => any;
 export type NextHook = () => any;
+export type Method = 'GET' | 'PUT' | 'PATCH' | 'POST' | 'DELETE';

@@ -8,7 +8,7 @@ import { Context, Middleware, Request, Response } from '../types';
 import { Stream } from 'stream';
 
 export class Application extends EventEmitter {
-  public middleware: Middleware;
+  public middleware: Middleware[];
   public context: Context;
   public request: Request;
   public response: Response;
@@ -57,17 +57,9 @@ export class Application extends EventEmitter {
    * 控制中间件的总回调方法
    */
   handleRequest = (req: any, res: any) => {
-    res.statusCode = 404;
     const ctx = this.createContext(req, res);
     const middleware = this.middleware;
-    // const body = ctx.body;
-    // if (body) {
-    //   res.end(body);
-    // } else {
-    //   res.end('Not Found');
-    // }
     // 执行中间件
-    // compose(middleware)(ctx).catch((err) => this.onerror(err));
     const fn = compose(middleware);
     fn(ctx)
       .then(() => {
@@ -83,7 +75,7 @@ export class Application extends EventEmitter {
           res.end('Not found');
         }
       })
-      .catch((err) => {
+      .catch((err: Error) => {
         this.emit('error', err);
         res.statusCode = 500;
         res.end('server error');
