@@ -4,6 +4,8 @@ import { Context } from '../types';
 export const context: Context = {
   app: {},
   state: {},
+  method: '',
+  path: '',
 };
 
 export default context;

@@ -9,40 +9,37 @@ const router = new Router();
 
 app.use(logger);
 
-app.use(async (ctx: Context, next: NextHook) => {
-  console.log('action 001');
-  await next();
-  console.log('action 006');
-});
+// app.use(async (ctx: Context, next: NextHook) => {
+//   console.log('action 001');
+//   await next();
+//   console.log('action 006');
+// });
 
-app.use(async (ctx: Context, next: NextHook) => {
-  console.log('action 002');
-  await next();
-  console.log('action 005');
-});
+// app.use(async (ctx: Context, next: NextHook) => {
+//   console.log('action 002');
+//   await next();
+//   console.log('action 005');
+// });
 
-app.use(async (ctx: Context, next: NextHook) => {
-  console.log('action 003');
-  await next();
-  console.log('action 004');
-});
+// app.use(async (ctx: Context, next: NextHook) => {
+//   console.log('action 003');
+//   await next();
+//   console.log('action 004');
+// });
 
-app.use(async (ctx: Context) => {
-  ctx.body = 'hello ctx.res';
-});
+// app.use(async (ctx: Context) => {
+//   ctx.body = 'hello ctx.res';
+// });
 
 // 注册路由请求信息缓存到实例中
-router.get('/index', async (ctx) => {
+router.get('/get', async (ctx: Context) => {
   ctx.body = 'index page';
 });
-router.get('/post', async (ctx) => {
+router.post('/post', async (ctx: Context) => {
   ctx.body = 'post page';
 });
-router.get('/list', async (ctx) => {
+router.get('/list', async (ctx: Context) => {
   ctx.body = 'list page';
-});
-router.get('/item', async (ctx) => {
-  ctx.body = 'item page';
 });
 
 // 路由实例输出父中间件 router.routes()

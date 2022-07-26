@@ -45,6 +45,9 @@ export class Application extends EventEmitter {
     ctx.request = request;
     ctx.request.req = ctx.req = req;
 
+    ctx.method = ctx.request.method;
+    ctx.path = ctx.request.path;
+
     ctx.response = response;
     ctx.response.res = ctx.res = res;
     ctx.originalUrl = request.originalUrl = req.url;
@@ -58,6 +61,7 @@ export class Application extends EventEmitter {
    */
   handleRequest = (req: any, res: any) => {
     const ctx = this.createContext(req, res);
+    res.statusCode = 404;
     const middleware = this.middleware;
     // 执行中间件
     const fn = compose(middleware);

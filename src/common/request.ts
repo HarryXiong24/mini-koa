@@ -1,3 +1,6 @@
+import stringify from 'url';
+import parse from 'parseurl';
+
 export const request = {
   req: {
     url: '',
@@ -31,6 +34,21 @@ export const request = {
   },
   get method() {
     return this.req.method;
+  },
+  get path() {
+    return parse(this.req as any)?.pathname;
+  },
+  set path(path) {
+    const url = parse(this.req as any);
+
+    if (url?.pathname === path) {
+      return;
+    }
+
+    (url as any).pathname = path;
+    (url as any).path = null;
+
+    this.url = stringify.format(url as unknown as stringify.URL);
   },
 };
 
