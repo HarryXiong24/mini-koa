@@ -12,4 +12,4 @@ export type Response = Partial<typeof response> & {
 };
 export type Middleware = (ctx: Context, next?: NextHook, ...args: any[]) => any;
 export type NextHook = () => any;
-export type Method = 'GET' | 'PUT' | 'PATCH' | 'POST' | 'DELETE';
+export type Method = 'GET' | 'PUT' | 'PATCH' | 'POST' | 'DELETE' | 'HEAD' | 'OPTIONS';
