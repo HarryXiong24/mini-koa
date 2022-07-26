@@ -1,15 +1,17 @@
-import request from '../common/request';
-import response from '../common/response';
+import context from '../core/context';
+import request from '../core/request';
+import response from '../core/response';
 
-export interface Context {
-  [propName: string]: any;
-}
-export type Request = Partial<typeof request> & {
+export type KoaContext = Partial<typeof context> & {
   [propName: string]: any;
 };
-export type Response = Partial<typeof response> & {
+export type KoaRequest = Partial<typeof request> & {
   [propName: string]: any;
 };
-export type Middleware = (ctx: Context, next?: NextHook, ...args: any[]) => any;
-export type NextHook = () => any;
+export type KoaResponse = Partial<typeof response> & {
+  [propName: string]: any;
+};
+export type KoaMiddleware = (ctx: KoaContext, ...args: any[]) => any;
+export type KoaMiddlewares = KoaMiddleware[];
+export type KoaNextHook = () => any;
 export type Method = 'GET' | 'PUT' | 'PATCH' | 'POST' | 'DELETE' | 'HEAD' | 'OPTIONS';

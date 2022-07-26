@@ -1,11 +1,11 @@
 import { Router } from '../src';
-import { Context } from '../src/types';
+import { KoaContext } from '../src/types';
 
 // 初始化路由实例
 const router = new Router();
 
 // 注册路由请求信息缓存到实例中
-router.get('/get', async (ctx: Context) => {
+router.get('/get', async (ctx: KoaContext) => {
   ctx.status = 400;
   ctx.body = {
     code: 200,
@@ -16,7 +16,7 @@ router.get('/get', async (ctx: Context) => {
   };
 });
 
-router.post('/post', async (ctx: Context) => {
+router.post('/post', async (ctx: KoaContext) => {
   ctx.status = 400;
   ctx.body = {
     code: 200,
@@ -27,7 +27,7 @@ router.post('/post', async (ctx: Context) => {
   };
 });
 
-router.get('/list', async (ctx: Context) => {
+router.get('/list', async (ctx: KoaContext) => {
   ctx.status = 400;
   ctx.body = {
     code: 200,

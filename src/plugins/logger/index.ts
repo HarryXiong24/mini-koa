@@ -1,7 +1,7 @@
-import { Context, NextHook } from '../../types/index';
+import { KoaContext, KoaNextHook } from '../../types/index';
 
 // 日志
-export const logger = async function (ctx: Context, next: NextHook) {
+export const logger = async function (ctx: KoaContext, next: KoaNextHook) {
   const res = ctx.res;
 
   // 拦截操作请求 request

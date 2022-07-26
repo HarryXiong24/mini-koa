@@ -1,11 +1,11 @@
-import { Middleware, Method, Context, NextHook } from '../../types/index';
+import { KoaMiddleware, Method, KoaContext, KoaNextHook } from '../../types/index';
 class Layer {
   public path: string;
   public method: Method;
-  public middleware: Middleware;
+  public middleware: KoaMiddleware;
   public options?: any;
 
-  constructor(path: string, method: Method, middleware: Middleware, options?: any) {
+  constructor(path: string, method: Method, middleware: KoaMiddleware, options?: any) {
     this.path = path;
     this.method = method;
     this.middleware = middleware;
@@ -25,40 +25,40 @@ export class Router {
   }
 
   // 注册路由
-  register(path: string, method: Method, middleware: Middleware, options?: any) {
+  register(path: string, method: Method, middleware: KoaMiddleware, options?: any) {
     const route = new Layer(path, method, middleware, options);
     // 储存起来
     this.stack.push(route);
     return this;
   }
 
-  get(path: string, middleware: Middleware) {
+  get(path: string, middleware: KoaMiddleware) {
     this.register(path, 'GET', middleware);
   }
 
-  post(path: string, middleware: Middleware) {
+  post(path: string, middleware: KoaMiddleware) {
     this.register(path, 'POST', middleware);
   }
 
-  delete(path: string, middleware: Middleware) {
+  delete(path: string, middleware: KoaMiddleware) {
     this.register(path, 'DELETE', middleware);
   }
 
-  put(path: string, middleware: Middleware) {
+  put(path: string, middleware: KoaMiddleware) {
     this.register(path, 'PUT', middleware);
   }
 
-  patch(path: string, middleware: Middleware) {
+  patch(path: string, middleware: KoaMiddleware) {
     this.register(path, 'PATCH', middleware);
   }
 
   routes() {
     const stock = this.stack;
-    return async (ctx: Context, next: NextHook) => {
+    return async (ctx: KoaContext, next: KoaNextHook) => {
       // 当前的路径
       const currentPath = ctx.path;
       // 定义存放中间件的容器
-      let route: Middleware | undefined;
+      let route: KoaMiddleware | undefined;
 
       for (let i = 0; i < stock.length; i++) {
         const item = stock[i];
@@ -71,7 +71,6 @@ export class Router {
 
       // 如果中间件是函数，则调用
       if (typeof route === 'function') {
-        console.log(route);
         (route as any)(ctx, next);
         return;
       }
