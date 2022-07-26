@@ -71,7 +71,7 @@ export class Router {
 
       // 如果中间件是函数，则调用
       if (typeof route === 'function') {
-        (route as any)(ctx, next);
+        route(ctx, next);
         return;
       }
 
