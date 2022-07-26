@@ -62,16 +62,12 @@ export class Router {
 
       for (let i = 0; i < stock.length; i++) {
         const item = stock[i];
-        console.log('1', currentPath, item.path);
-        console.log('2', ctx.method);
         // 如果当前的路由路径和 item 里面存储的一样，并且请求方法也一样，则保存中间件
-        if (currentPath === item.path && item.method.indexOf(ctx.method) >= 0) {
+        if (currentPath === item.path && item.method === ctx.method) {
           route = item.middleware;
           break;
         }
       }
-
-      console.log('route', route);
 
       // 如果中间件是函数，则调用
       if (typeof route === 'function') {
