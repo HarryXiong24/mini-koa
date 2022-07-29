@@ -22,7 +22,7 @@ export function compose(middleware: KoaMiddleware[]) {
       let fn = middleware[i];
 
       if (i === middleware.length) {
-        fn = next as KoaNextHook;
+        fn = next as KoaMiddleware;
       }
 
       if (!fn) {
